@@ -5,13 +5,15 @@
 	import { onMount } from 'svelte';
 	import mapboxgl from 'mapbox-gl';
 
+    import 'dotenv'
+
 	let map;
 	$: isMobile = false;
 
 	onMount(() => {
 		window.innerWidth <= 490 ? (isMobile = 'sm') : (isMobile = 'md');
 
-		mapboxgl.accessToken = import.meta.env.MAPBOX;
+		mapboxgl.accessToken = import.meta.env.VITE_MAPBOX;
 
 		map = new mapboxgl.Map({
 			container: 'map',
